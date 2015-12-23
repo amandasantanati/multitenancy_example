@@ -1,0 +1,9 @@
+<h1>Domínios</h1>
+
+<ul>
+  <% @domains.each do |domain| %>
+    <li>
+      <%= link_to domain.title, root_url(subdomain: domain.subdomain) %>
+    </li>
+    <% end %>
+</ul>

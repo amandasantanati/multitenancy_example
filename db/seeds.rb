@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+domain_list = [
+  ['Assessoria de Comunicação', 'ascom', ''],
+  ['Pró-Reitoria de Graduação', 'prograd', '<p>HTML referente a PROGRAD</p>'],
+  ['Pró-Reitoria de Extensão', 'proex', '<p>HTML referente a PROEX</p>'],
+  ['Pró-Reitoria de Pós-Graduação', 'posgrap', '']
+]
+
+domain_list.each do |title, subdomain, description|
+  Domain.create(title: title, subdomain: subdomain, description: description)
+end
+
+# Getting created domains with ID
+domains_with_content = [
+  Domain.find_by!(subdomain: 'ascom'),
+  Domain.find_by!(subdomain: 'posgrap')
+]
+
+(1..10).each do |n|
+  domains_with_content.each do |domain|
+    Content.create(
+      title: "Lorem Ipsum ##{n}",
+      description: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>',
+      domain: domain
+    )
+  end
+end

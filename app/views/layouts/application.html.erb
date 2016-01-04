@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="menu-principal container">
+    <%= link_to 'Home', home_url %> |
+    <%= link_to 'Contents', contents_url %>  
+  </nav>
 
-<%= yield %>
-
+  <main id="main" class="container">
+    <%= yield %>
+  </main>
 </body>
 </html>

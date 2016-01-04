@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223190914) do
+ActiveRecord::Schema.define(version: 20151223205808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contents", force: :cascade do |t|
+    t.integer  "domain_id",   null: false
+    t.string   "title",       null: false
+    t.string   "slug",        null: false
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "contents", ["domain_id"], name: "index_contents_on_domain_id", using: :btree
+  add_index "contents", ["slug"], name: "index_contents_on_slug", using: :btree
 
   create_table "domains", force: :cascade do |t|
     t.string   "title",       null: false
@@ -26,4 +38,5 @@ ActiveRecord::Schema.define(version: 20151223190914) do
 
   add_index "domains", ["subdomain"], name: "index_domains_on_subdomain", using: :btree
 
+  add_foreign_key "contents", "domains"
 end

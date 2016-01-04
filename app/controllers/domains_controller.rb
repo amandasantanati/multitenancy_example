@@ -1,12 +1,11 @@
 class DomainsController < ApplicationController
-  before_action :set_domain, only: [:edit, :update, :destroy]
+  before_action :set_domain, only: [:show, :edit, :update, :destroy]
 
   def index
     @domains = Domain.all
   end
 
   def show
-    @domain = Domain.find_by!(subdomain: request.subdomain)
   end
 
   def new
@@ -52,12 +51,15 @@ class DomainsController < ApplicationController
 
   private
 
-    def set_domain
+  def set_domain
+    if request.subdomain.empty?
       @domain = Domain.find(params[:id])
+    else
+      @domain = Domain.find_by!(subdomain: request.subdomain)
     end
+  end
 
-
-    def domain_params
-      params.require(:domain).permit(:title, :subdomain, :description)
-    end
+  def domain_params
+    params.require(:domain).permit(:title, :subdomain, :description)
+  end
 end

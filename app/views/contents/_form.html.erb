@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :domain_id %><br>
-    <%= f.select :domain_id %>
+    <%= f.collection_select :domain_id, Domain.all, :id, :subdomain %>
   </div>
 
   <div class="field">

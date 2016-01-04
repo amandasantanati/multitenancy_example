@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Contents</h1>
+<h3><%= link_to '+ New Content', new_content_path %></h3>
 
 <table>
   <thead>
     <tr>
-      <th>Domain</th>
       <th>Title</th>
       <th>Slug</th>
-      <th>Description</th>
+      <th>Domain</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,9 @@
   <tbody>
     <% @contents.each do |content| %>
       <tr>
-        <td><%= content.domain %></td>
         <td><%= content.title %></td>
         <td><%= content.slug %></td>
-        <td><%= content.description %></td>
+        <td><%= content.domain.subdomain %></td>
         <td><%= link_to 'Show', content %></td>
         <td><%= link_to 'Edit', edit_content_path(content) %></td>
         <td><%= link_to 'Destroy', content, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,7 +26,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Content', new_content_path %>

@@ -1,24 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @content.title %></h1>
+<h2><%= @content.slug %></h2>
+
 <p>
   <strong>Domain:</strong>
-  <%= @content.domain %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @content.title %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @content.slug %>
+  <%= @content.domain.subdomain %>
 </p>
 
 <p>
   <strong>Description:</strong>
   <%= @content.description %>
 </p>
-
-<%= link_to 'Edit', edit_content_path(@content) %> |
-<%= link_to 'Back', contents_path %>

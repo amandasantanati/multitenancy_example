@@ -3,11 +3,6 @@
 <h1><%= @domain.subdomain.upcase %></h1>
 <h2><%= @domain.title %></h2>
 
-<nav>
-  <%= link_to 'Home', home_url %> |
-  <%= link_to 'Edit', edit_domain_url(@domain) %>
-</nav>
-
 <div>
   <% if @domain.has_page_domain? %>
     <%= @domain.description %>

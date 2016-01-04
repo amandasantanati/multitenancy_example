@@ -1,21 +1,17 @@
-body {
+html, body {
   background-color: #fff;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
-}
-
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-size: 0.888888889rem;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
 }
 
 pre {
   background-color: #eee;
-  padding: 10px;
-  font-size: 11px;
+  padding: 0.56rem;
+  font-size: 0.67rem;
 }
 
 a {
@@ -59,7 +55,7 @@ div {
     text-align: left;
     font-weight: bold;
     padding: 5px 5px 5px 15px;
-    font-size: 12px;
+    font-size: 0.67rem;
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;

@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :contents
   resources :domains
 
-  get '', to: 'domains#show', constraints: { subdomain: /.+/ }  
+  constraints SubdomainConstraint do
+    get '', to: 'domains#show'
+  end
 
   root 'home#index'
 

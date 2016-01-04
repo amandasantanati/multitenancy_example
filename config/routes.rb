@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :contents
+  resources :contents, path: 'conteudo', only: [:show]
+  resources :contents, except: [:show]
+
   resources :domains
 
   constraints SubdomainConstraint do

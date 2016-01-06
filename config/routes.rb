@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :contents, path: 'conteudo', only: [:show]
-  resources :contents, except: [:show]
+  resources :contents, except: [:show, :update, :destroy]
+  resources :contents, path: 'conteudo', only: [:show, :update, :destroy]
 
   resources :domains
 
